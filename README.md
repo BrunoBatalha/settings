@@ -259,9 +259,9 @@ install_nvm() {
     show_text "-> Installing nvm..."
     wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 
-    [echo $0 -eq zsh] && {
+    [ $0 -eq zsh ] && {
         grep -rn '~/.zshrc' -e 'export NVM_DIR='
-        [echo $? -eq 0] && {
+        [ $? -eq 0 ] && {
             echo "export NVM_DIR=\"$HOME/.nvm\"" >> ~/.zshrc
             echo "[ -s \"$NVM_DIR/nvm.sh\" ] && \. \"$NVM_DIR/nvm.sh\"  # This loads nvm" >> ~/.zshrc
             echo "[ -s \"$NVM_DIR/bash_completion\" ] && \. \"$NVM_DIR/bash_completion\"  # This loads nvm bash_completion" >> ~/.zshrc
