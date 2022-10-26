@@ -294,7 +294,7 @@ mkdir $DIRECTORY_NAME
 
     install_wget
     install_chrome
-    install git
+    install_git
     install_curl
     install_zsh
     install_nvm
