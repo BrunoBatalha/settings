@@ -278,6 +278,11 @@ install_vscode() {
     sudo apt install code
 }
 
+install_gparted() {
+    show_text "-> Installing gparted..."
+    sudo apt install gparted -y
+}
+
 clear
 show_text "[Author: Bruno Batalha]"
 show_text "-> Creating directory for settings..."
@@ -299,7 +304,7 @@ mkdir $DIRECTORY_NAME
     install_zsh
     install_nvm
     install_vscode
-
+    install_gparted
     
     show_text "-> Sudo autoremove and delete directory for settings..." 
     sudo apt autoremove -y
