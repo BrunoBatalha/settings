@@ -319,11 +319,11 @@ mkdir $DIRECTORY_NAME
     install_wget
     install_chrome
     install_git
-    install_curl
-    install_zsh
-    install_nvm
+    install_curl    
     install_vscode
     install_gparted
+    install_zsh
+    install_nvm
 
     
     show_text "-> Sudo autoremove and delete directory for settings..." 
