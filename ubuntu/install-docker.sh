@@ -1,3 +1,4 @@
+#!/bin/sh -x
 sudo apt-get update -y
 sudo apt-get install \
     ca-certificates \
