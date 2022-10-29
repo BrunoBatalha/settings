@@ -215,11 +215,3 @@ sed -i "/ZSH_THEME=/c ZSH_THEME=\"spaceship\"" ~/.zshrc
 # "- Set plugins..."
 sed -i "/plugins=/c plugins=(git zsh-autosuggestions zsh-syntax-highlighting)" ~/.zshrc
 ```
-
-
-### ...
-```shell
-#!/bin/sh -x
-LIGHT_CYAN='\033[1;36m' # https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
-NO_COLOR='\033[0m' # No Color
-```
