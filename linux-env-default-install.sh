@@ -1,3 +1,8 @@
+#!/bin/sh -x
+show_text() {
+    printf "${LIGHT_CYAN}$1${NO_COLOR}\n" 
+}
+
 show_text "-> Sudo update and upgrade..."
 sudo apt update -y && sudo apt upgrade -y
 
