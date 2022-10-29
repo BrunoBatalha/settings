@@ -1,6 +1,4 @@
 ## How to install environment default on Ubuntu
-
-
 Install curl:
 ```
 sudo apt install curl -y
@@ -13,17 +11,17 @@ Run command:
 
 
 ## How to install zsh terminal
-1. Instalar ZSH
+1. Install ZSH
 ```
 sudo apt install zsh -y && chsh -s /bin/zsh && zsh
 ```
 
-2. Instalar oh-my-zsh
+2. Install oh-my-zsh
 ```
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-3. Customização
+3. Customizing
 ```
 # "- Downloading theme: spaceship.zsh-theme..."
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
@@ -48,16 +46,21 @@ sed -i "/plugins=/c plugins=(git zsh-autosuggestions zsh-syntax-highlighting)" ~
 ```
 
 
-### NVM no ZSH
-Adiciona ao final do arquivo .zshrc
+## How to set NVM in ZSH
+Added in ~/.zshrc
 ```
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
-### ADB (Android Debug Bridge) no ZSH
+## ADB (Android Debug Bridge) in ZSH
+Added in ~/.zshrc
 ```
 export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 ```
 
+## How to install Docker
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/BrunoBatalha/settings/main/ubuntu/install-docker.sh)"
+```
