@@ -164,35 +164,18 @@ npm install -D @typescript-eslint/eslint-plugin eslint eslint-config-prettier es
 }
 ```
 
-## Oh My Zsh!
-[Gist](https://gist.github.com/luizomf/1fe6c67f307fc1df19e58f224134dc8f)
-
-### NVM no ZSH
-Adiciona ao final do arquivo .zshrc
-```
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-```
-
-### ADB (Android Debug Bridge) no ZSH
-```
-export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
-```
-
-### Install ZSH
-Installation
-1. Install ZSH
+### Instalação do ZSH
+1. Instalar ZSH
 ```
 sudo apt install zsh -y && chsh -s /bin/zsh && zsh
 ```
 
-2. Install oh-my-zsh
+2. Instalar oh-my-zsh
 ```
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-3. Customizing
+3. Customização
 ```
 # "- Downloading theme: spaceship.zsh-theme..."
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
@@ -214,4 +197,18 @@ sed -i "/ZSH_THEME=/c ZSH_THEME=\"spaceship\"" ~/.zshrc
 
 # "- Set plugins..."
 sed -i "/plugins=/c plugins=(git zsh-autosuggestions zsh-syntax-highlighting)" ~/.zshrc
+```
+
+
+### NVM no ZSH
+Adiciona ao final do arquivo .zshrc
+```
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
+
+### ADB (Android Debug Bridge) no ZSH
+```
+export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
 ```
