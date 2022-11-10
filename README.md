@@ -49,6 +49,19 @@ git clone git@github-work:path/to/repo
 ```
 *Lembrando as keys ssh deverão ser criadas nessa mesma pasta.*
 
+# Git tips
+```
+// delete branch local
+git branch -d nameBranchLocal
+
+// delete branch remote
+git push origin --delete nameBranchRemote
+
+// squash commits
+git rebase -i HEAD~quantityCommitsPrevious 
+// or
+git rebase -i commitId
+```
 
 ## React JS + Typescript
 ### ESlint + Prettier
