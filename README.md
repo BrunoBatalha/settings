@@ -11,6 +11,23 @@
 [alias]
     l = !git log --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
 ```
+### Mesclando dois repositórios com Git (sem perder commits)
+```
+git clone https://github.com/BrunoBatalha/Project.git
+cd Project
+
+git remote add repo2 https://github.com/BrunoBatalha/Project2.git
+git fetch repo2
+git checkout -b merge
+git merge repo2/branchRepo2 --allow-unrelated-histories
+
+// Resolva conflitos se necessário
+
+git add .
+git commit -m "Merge frontend and backend repositories"
+git push origin merge
+```
+
 
 ### Multiplas contas git na mesma máquina (Linux)
 Insira isso arquivo ``.gitconfig`` global:
