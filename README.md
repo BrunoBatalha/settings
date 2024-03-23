@@ -80,88 +80,84 @@ git rebase -i HEAD~quantityCommitsPrevious
 git rebase -i commitId
 ```
 
-## React JS + Typescript
-### ESlint + Prettier
-
-**packages**
-``` terminal
-npm install -D @typescript-eslint/eslint-plugin eslint eslint-config-prettier eslint-config-standard-with-typescript eslint-plugin-import eslint-plugin-n eslint-plugin-prettier
- eslint-plugin-promise eslint-plugin-react prettier typescript
-```
+## ReactJs (Typescript)
+### ESlint + Prettier  (não instale a extensão do prettier)
 
 **.eslintrc.json**
 ``` json
 {
-  "settings": {
-    "react": {
-      "version": "detect"
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "airbnb-typescript",
+        "plugin:prettier/recommended",
+        "plugin:@tanstack/eslint-plugin-query/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "@tanstack/query"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "warn",
+            {
+              "singleQuote": true,
+              "tabWidth": 2,
+              "useTabs": false,
+              "semi": true,
+              "arrowParens": "always",
+              "bracketSpacing": true,
+              "printWidth": 120,
+              "endOfLine": "lf",
+              "trailingComma": "none"
+            },
+            {
+              "usePrettierrc": false
+            }
+          ],
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/function-component-definition": "off",
+        "react/prop-types": "off",
+        "react/jsx-no-useless-fragment": "off",
+        "react/jsx-no-bind": "off",
+        "import/prefer-default-export": "off",
+        "no-param-reassign": "off",
+        "react/require-default-props": "off",
+        "react/no-array-index-key": "off",
+        "@typescript-eslint/no-shadow": "off",
+        "@typescript-eslint/no-use-before-define":  ["error", {
+            "functions": false,
+            "classes": true,
+            "variables": true,
+            "allowNamedExports": false
+        }],
+        "@typescript-eslint/no-unused-vars": [
+            "warn",{
+                "argsIgnorePattern": "^_",
+                "varsIgnorePattern": "^_",
+                "caughtErrorsIgnorePattern": "^_"
+            }
+        ]
     }
-  },
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "plugin:react/jsx-runtime"
-  ],
-  "overrides": [],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "plugins": [
-    "react"
-  ],
-  "rules": {
-    "prettier/prettier": [
-      "warn"
-    ],
-    "no-useless-return": "warn",
-    "curly": "error",
-    "@typescript-eslint/explicit-function-return-type": "warn",
-    "@typescript-eslint/unbound-method": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      {
-        "argsIgnorePattern": "^_",
-        "varsIgnorePattern": "^_",
-        "caughtErrorsIgnorePattern": "^_"
-      }
-    ],
-    "@typescript-eslint/no-inferrable-types": "off",
-    "@typescript-eslint/array-type": [
-      "warn",
-      {
-        "default": "array-simple",
-        "read-only": "array-simple"
-      }
-    ],
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-non-null-assertion": "off"
-  }
 }
+
 ```
 
-**.prettierrc**
-```json
-{
-	"tabWidth": 2,
-	"useTabs": true,
-	"semi": true,
-	"singleQuote": true,
-	"arrowParens": "always",
-	"bracketSpacing": true,
-	"endOfLine": "lf",
-	"printWidth": 120,
-	"trailingComma": "none",
-}
-```
 
 **tsconfig.json**
 ```json
@@ -191,6 +187,112 @@ npm install -D @typescript-eslint/eslint-plugin eslint eslint-config-prettier es
 	"include": [
 		"src"
 	],
+}
+```
+
+## NodeJs/NestJs (Typescript)
+### ESLint + Prettier (não instale a extensão do prettier)
+```
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "overrides": [
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "no-console": "warn",
+        "prettier/prettier": [
+            "warn",
+            {
+              "singleQuote": true,
+              "tabWidth": 2,
+              "useTabs": false,
+              "semi": true,
+              "arrowParens": "always",
+              "bracketSpacing": true,
+              "printWidth": 120,
+              "endOfLine": "auto",
+              "trailingComma": "none"
+            },
+            {
+              "usePrettierrc": false
+            }
+        ],
+        "@typescript-eslint/no-namespace":"off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",{
+                "argsIgnorePattern": "^_",
+                "varsIgnorePattern": "^_",
+                "caughtErrorsIgnorePattern": "^_"
+            }
+        ],
+        "@typescript-eslint/naming-convention": [
+            "error",
+            {
+              "selector": ["variable", "function"],
+              "format": ["camelCase"]
+            },
+            {
+                "selector": ["class", "interface", "enum", "typeParameter"],
+                "format": ["PascalCase"]
+            }          
+          ]
+          
+    }
+}
+
+```
+
+**tsconfig.json**
+```
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+     "@/*": ["./*"]
+   }
+  }
+}
+```
+
+### Crie um arquivo .vscode/settings.json ou coloque na configuração do seu usuário mesmo
+```
+{
+    "editor.codeActionsOnSave": [
+        "source.addMissingImports",// optional
+        "source.fixAll.eslint", // usa o eslint ao salvar
+        "source.organizeImports", // optional
+    ],
 }
 ```
 
