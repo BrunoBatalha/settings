@@ -6,7 +6,7 @@ sudo apt install curl -y
 
 Run command:
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/BrunoBatalha/settings/main/ubuntu/linux-env-default-install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/BrunoBatalha/settings/main/ubuntu/install-linux-env-default.sh)"
 ```
 
 
@@ -46,7 +46,7 @@ sed -i "/plugins=/c plugins=(git zsh-autosuggestions zsh-syntax-highlighting)" ~
 ```
 
 
-## How to set NVM in ZSH
+## NVM in ZSH
 Added in ~/.zshrc
 ```
 export NVM_DIR="$HOME/.nvm"
@@ -54,13 +54,51 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 ```
 
-## ADB (Android Debug Bridge) in ZSH
+## Android in ZSH
 Added in ~/.zshrc
 ```
+export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+export PATH="$PATH:$JAVA_HOME/bin"
+export ANDROID_HOME="$HOME/Android/Sdk"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
 export PATH="$HOME/Android/Sdk/platform-tools:$PATH"
+```
+
+## .Net in ZSH
+Added in ~/.zshrc
+```
+export DOTNET_ROOT="$HOME/.dotnet"
+export PATH="$PATH:$HOME/.dotnet:$HOME/.dotnet/tools"
+
+# zsh parameter completion for the dotnet CLI
+_dotnet_zsh_complete() 
+{
+  local completions=("$(dotnet complete "$words")")
+
+  # If the completion list is empty, just continue with filename selection
+  if [ -z "$completions" ]
+  then
+    _arguments '*::arguments: _normal'
+    return
+  fi
+
+  # This is not a variable assignment, don't remove spaces!
+  _values = "${(ps:\n:)completions}"
+}
+
+compdef _dotnet_zsh_complete dotnet
+```
+
+## Alias ZSH to git log
+Added in ~/.zshrc
+```
+alias bgl="git log --pretty=format:'%C(blue)%h %C(white)%s %C(red)%d - %C(cyan)%cn, %C(green)%cr'"
+alias bglt="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(>
 ```
 
 ## How to install Docker
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/BrunoBatalha/settings/main/ubuntu/install-docker.sh)"
 ```
+
