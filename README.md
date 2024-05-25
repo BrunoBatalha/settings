@@ -10,6 +10,8 @@
 
 [alias]
     l = !git log --pretty=format:'%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr'
+    bgl = !git log --pretty=format:'%C(blue)%h %C(white)%s %C(red)%d - %C(cyan)%cn, %C(green)%cr'
+    bglt = !git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
 ```
 ### Mesclando dois repositórios com Git (sem perder commits)
 ```
